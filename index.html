@@ -62,7 +62,9 @@
       <!------------------------Розділ герой --------------------------->
       <section class="hero">
         <h1 class="hero-tittle">Ефективні рішення для вашого бізнесу</h1>
-        <button type="button" class="hero-btn btn">Замовити послугу</button>
+        <button type="button" class="hero-btn btn" data-modal-open>
+          Замовити послугу
+        </button>
       </section>
       <!--------------------Розділ про переваги компанії---------------->
       <section class="advantages section">
@@ -421,15 +423,15 @@
       </div>
     </footer>
     <!------------------------------Модальне вікно----------------------->
-    <div class="backdrop is-hidden">
+    <div class="backdrop is-hidden" data-modal>
       <div class="modal">
-        <button type="button" class="modal-btn btn">
+        <button type="button" class="modal-btn btn" data-modal-close>
           <svg class="modal-btn-svg" width="30" height="30">
             <use href="./images/icons.svg#icon-close"></use>
           </svg>
         </button>
       </div>
     </div>
-    <!-- <script src="./js/modal.js"></script> -->
+    <script src="./js/modal.js"></script>
   </body>
 </html>
