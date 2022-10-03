@@ -40,10 +40,6 @@ svg {
   text-decoration: none;
 }
 
-.menu-link.current {
-  color: var(--accent-color);
-}
-
 .visually-hidden {
   position: absolute;
   white-space: nowrap;
@@ -108,6 +104,27 @@ svg {
   margin-left: 50px;
 }
 
+.menu-link.current {
+  color: var(--accent-color);
+}
+
+.menu-item {
+  position: relative;
+}
+
+.current::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: var(--accent-color);
+  border-radius: 2px;
+}
+
 .menu-link,
 .mail-link,
 .tel-link {
@@ -115,6 +132,8 @@ svg {
   font-size: 14px;
   line-height: 1.14px;
   letter-spacing: 0.02em;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .menu-link {
@@ -154,6 +173,8 @@ svg {
 
 .contacts-item svg {
   fill: var(--second-color);
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mail-link:hover svg,
@@ -211,11 +232,13 @@ svg {
   margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-btn:hover,
 .hero-btn:focus {
-  background: #188ce8;
+  background-color: #188ce8;
 }
 
 /*-------------Розділ про переваги компанії-------------*/
@@ -272,6 +295,34 @@ svg {
   display: flex;
   align-items: center;
   gap: 30px;
+}
+
+.about-item {
+  position: relative;
+}
+
+.about-item-title-wraper {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 70px;
+  background-color: rgba(47, 48, 58, 0.8);
+}
+
+.about-item-title {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  color: #FFFFFF;
 }
 
 /*--------------------Розділ про команду---------------------*/
@@ -333,16 +384,19 @@ svg {
   align-items: center;
   width: 44px;
   height: 44px;
+  border-radius: 50% 50%;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-social-svg {
   fill:#afb1b8;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-social-link:hover,
 .team-social-link:focus {
   background-color: var(--accent-color);
-  border-radius: 50% 50%;
 }
 
 .team-social-link:hover .team-social-svg,
@@ -375,10 +429,14 @@ svg {
   height: 92px;
   border: 1px solid #AFB1B8;
   border-radius: 4px;
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-logo-svg {
   fill: #afb1b8;
+  
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-logo-link:hover .clients-logo-svg,
@@ -424,6 +482,8 @@ svg {
 
 .address-link {
   color: #ffffff;
+  
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .address-link:hover,
@@ -462,6 +522,8 @@ footer .tel-link {
   height: 44px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50% 50%;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-social-svg {
@@ -498,6 +560,10 @@ footer .tel-link {
   cursor: pointer;
 
   padding: 6px 22px;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-btn:hover,
@@ -524,6 +590,40 @@ footer .tel-link {
 
 .portfolio-project-link {
   display: block;
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-project-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-project-details-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(100%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(33, 150, 243, 0.9);
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-project-details {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  color: #FFFFFF;
+
+  padding: 63px 24px;
 }
 
 .portfolio-project-link:hover,
@@ -531,6 +631,11 @@ footer .tel-link {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
     0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.portfolio-project-link:hover .portfolio-project-details-overlay,
+.portfolio-project-link:focus .portfolio-project-details-overlay {
+  transform: translateY(0);
 }
 
 .portfolio-project-wraper {
@@ -549,9 +654,53 @@ footer .tel-link {
   margin-bottom: 4px;
 }
 
-.portfolio-project-text {
+.portfolio-project-type {
   font-size: 16px;
   line-height: 1.88;
   letter-spacing: 0.03em;
   color: var(--second-color);
+}
+
+/*----------------------Модальне вікно---------------*/
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* .is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+} */
+
+.modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 528px;
+  height: 581px;
+
+  background: var(--main-background);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 
+    0px 1px 1px rgba(0, 0, 0, 0.14), 
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.modal-btn {
+  display: block;
+  margin: 8px 8px auto auto;
+  padding: 0;
+  background-color: var(--main-background);
+  border: none;
+
+  cursor: pointer;
+  
 }
